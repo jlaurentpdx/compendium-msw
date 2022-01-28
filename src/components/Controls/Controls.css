@@ -1,0 +1,16 @@
+.controls {
+  display: flex;
+}
+
+.controls input {
+  margin: 5px;
+  margin-left: 10px;
+
+  width: 20vw;
+  min-width: 200px;
+  max-width: 300px;
+}
+
+.controls button {
+  margin: 5px;
+}
