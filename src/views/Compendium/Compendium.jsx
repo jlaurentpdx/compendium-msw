@@ -22,7 +22,10 @@ export default function Compendium() {
     const fetchData = async () => {
       const data = await fetchHolidays();
       data.map((item, index) => (item.id = `${item.name}-${index}`));
-      setHolidays(data);
+      const publicHolidays = await data.filter(
+        (item) => item.types[0] === 'Public'
+      );
+      setHolidays(publicHolidays);
       setLoading(false);
     };
     fetchData();

@@ -3,7 +3,18 @@ import {
   screen,
   waitForElementToBeRemoved,
 } from '@testing-library/react';
+import { rest } from 'msw';
+import { setupServer } from 'msw/node';
 import Compendium from './Compendium';
+
+const server = setupServer(
+  rest.get(
+    'https://date.nager.at/api/v3/PublicHolidays/2022/US',
+    (req, res, ctx) => {
+      return res(ctx.json(mockHolidays));
+    }
+  )
+);
 
 test('Compendium renders an initial loading state', async () => {
   render(<Compendium />);
@@ -31,5 +42,5 @@ test('Compendium renders a default list of headings', async () => {
 
   await waitForElementToBeRemoved(() => screen.getByText(/please/i));
   const headings = await screen.findAllByRole('heading');
-  expect(headings).toHaveLength(26);
+  expect(headings).toHaveLength(24);
 });

@@ -178,6 +178,17 @@ export const mockHolidays = [
     types: ['Public'],
   },
   {
+    date: '2022-12-23',
+    localName: 'Festivus',
+    name: 'Festivus',
+    countryCode: 'US',
+    fixed: false,
+    global: true,
+    counties: null,
+    launchYear: 1966,
+    types: ['Public'],
+  },
+  {
     date: '2022-12-26',
     localName: 'Christmas Day',
     name: 'Christmas Day',

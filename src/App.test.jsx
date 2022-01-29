@@ -35,7 +35,7 @@ test('App should render text from a header', async () => {
 test('should display a list of all holidays when search returns an empty value', async () => {
   render(<App />);
 
-  const headingsCount = 27; // an actual count, two headings per holiday rendered plus 1 page title header
+  const headingsCount = 29; // an actual count, two headings per holiday rendered plus 1 page title header
   const button = await screen.findByRole('button', { name: /search/i });
   userEvent.click(button);
   const headings = await screen.findAllByRole('heading');
@@ -61,7 +61,7 @@ test('should display a single holiday when only one match is returned ', async (
 test('should display multiple holidays when more than one match is returned ', async () => {
   render(<App />);
 
-  const headingsCount = 5; // an actual count, two headings per holiday rendered plus 1 page title header
+  const headingsCount = 7; // an actual count, two headings per holiday rendered plus 1 page title header
   const search = await screen.findByRole('textbox', {
     name: /enter holiday name/i,
   });
