@@ -21,11 +21,7 @@ export default function Compendium() {
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetchHolidays();
-      data.map((item, index) => (item.id = `${item.name}-${index}`));
-      const publicHolidays = await data.filter(
-        (item) => item.types[0] === 'Public'
-      );
-      setHolidays(publicHolidays);
+      setHolidays(data);
       setLoading(false);
     };
     fetchData();
